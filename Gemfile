@@ -70,3 +70,7 @@ gem 'omniauth-github'
 gem 'dotenv-rails'
 
 gem 'bootstrap-sass'
+
+group :production do
+  gem 'pg', '0.21.0'
+end

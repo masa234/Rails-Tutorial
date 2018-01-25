@@ -130,6 +130,7 @@ GEM
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
+    pg (0.21.0)
     popper_js (1.12.9)
     public_suffix (3.0.1)
     puma (3.11.2)
@@ -242,6 +243,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.5)
   omniauth
   omniauth-github
+  pg (= 0.21.0)
   puma (~> 3.7)
   rails (~> 5.1.4)
   rough_swal

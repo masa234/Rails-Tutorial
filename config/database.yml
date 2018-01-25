@@ -47,8 +47,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: rails-tutorial_production
   username: rails-tutorial
   password: <%= ENV['RAILS-TUTORIAL_DATABASE_PASSWORD'] %>
