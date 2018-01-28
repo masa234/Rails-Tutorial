@@ -76,3 +76,15 @@ group :production do
 end
 
 gem "bootstrap_form"
+
+gem 'slim-rails'
+
+gem "bootstrap_form"
+
+gem 'rough_swal'
+
+gem 'sweetalert-rails'
+
+gem 'jquery-rails'
+
+gem 'bootstrap'
