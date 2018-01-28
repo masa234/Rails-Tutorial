@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, except: %i(new)
+  
+  def new 
+    @user = User.new
+  end
   
   def show
   end
