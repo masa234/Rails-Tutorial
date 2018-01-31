@@ -110,7 +110,7 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      blank: は不正な値です。
+      blank: ""
       present: は入力しないでください
       confirmation: と%{attribute}の入力が一致しません
       empty: を入力してください
