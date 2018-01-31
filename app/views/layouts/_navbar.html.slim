@@ -15,6 +15,8 @@ header
             li.dropdown
               a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button"
               -if sign_in?
+                li
+                  = link_to "プロフィールを編集する", edit_user_path(current_user)
                 li.dropdown
                   a.dropdown-toggle data-toggle="dropdown" href="#" 
                     = gravatar_for current_user, size: 20

@@ -22,6 +22,15 @@ class UsersController < ApplicationController
 
   def edit
   end
+  
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to user  
+    else
+      swal { error 'ユーザ情報の編集に失敗いたしました 必須事項をご入力くださいませ' }
+      render :edit
+    end
+  end
 
   def index
   end
