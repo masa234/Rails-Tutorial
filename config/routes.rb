@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'toppages#root'
   get  'user/signup',  to: 'users#new', as: "signup"
   
-  get  'user/login',  to: 'users#new', as: "login"
-  post  'user/login',  to: 'users#new'
+  get  'user/login',  to: 'sessions#new', as: "login"
+  post  'user/login',  to: 'sessions#create'
   delete  'user/logout',  to: 'users#logout', as: "logout"
   resources :users
 end
