@@ -5,5 +5,8 @@ ul.users
     li
       = gravatar_for user, size: 70
       = link_to user.name, user
+      - if current_user.admin? && !current_user?(user)
+        = link_to "削除する", user, method: :delete, class: "btn btn-danger pull-right", remote: true
 .text-center
   = will_paginate
+  

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show edit update check_user)
+  before_action :set_user, only: %i(show edit update destroy check_user)
   before_action :require_sign_in, except: %i(new create)
   before_action :check_user, only: %i(edit update)
   
@@ -35,6 +35,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+  end
+  
+  def destroy
+    @user.destroy
   end
   
   private
