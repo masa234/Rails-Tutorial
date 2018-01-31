@@ -1,2 +1,5 @@
-h1 Users#index
-p Find me in app/views/users/index.html.slim
+-if @users.any?
+  h1.text-center
+    | ユーザ一覧
+  = render @users
+
