@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to @user
     else
-      swal { error 'ユーザ情報の登録に失敗しました' }
+      swal { error 'ユーザ情報の登録に失敗いたしました 必須事項をご入力くださいませ' }
       render :new
     end
   end
