@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   
   def require_sign_in
     return if sign_in?
+    store_location
     swal{error 'ログインしてくださいませ'}
-    redirect_to "/"
+    redirect_to login_url
   end
 end
 
