@@ -12,8 +12,8 @@ MIT ライセンスと Beerware ライセンスのもとに公開されていま
 
 ## 使い方について
 
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-次に、次のコマンドで必要になる RubyGems をインストールします。
+このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてくださいませ。
+次に、次のコマンドで必要になる RubyGems をインストールをお願いいたします。
 
 ```
 $ bundle install --without production
@@ -25,16 +25,9 @@ $ bundle install --without production
 $ rails db:migrate
 ```
 
-最後に、テストを実行してうまく動いているかどうか確認してください。
-
-```
-$ rspec
-```
-
-テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
 
 ```
 $ rails server
 ```
 
-詳しくは、[*Ruby on Rails チュートリアル*](http://railstutorial.jp/)を参考にしてください。
+詳しくは、[*Ruby on Rails チュートリアル*](http://railstutorial.jp/)を参考にしてくださいませ。
