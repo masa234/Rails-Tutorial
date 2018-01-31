@@ -18,6 +18,10 @@ module SessionsHelper
     end
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def sign_in?
     !!current_user
   end
