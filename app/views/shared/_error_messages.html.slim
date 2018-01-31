@@ -1,0 +1,5 @@
+- if @user.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      =@user.errors.count
+      | 件のエラーがございます。 ご確認くださいませ。

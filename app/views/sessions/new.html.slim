@@ -1,0 +1,7 @@
+h1.text-center ログイン
+.row
+  .col-md-8.col-md-offset-2
+    = bootstrap_form_for(:session, url: login_path) do |f|
+      = f.email_field :email, label: "メールアドレス", placeholder: 'EmailAddress'
+      = f.password_field :password, label: "パスワード" ,placeholder: 'Password'
+      = f.submit "ログインする", class: "btn btn-primary signup-btn"

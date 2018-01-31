@@ -12,4 +12,56 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require sweetalert
+ *= require rails_bootstrap_forms
+ *
+ 
+    
+aside
+  section.user_info
+    margin-top: 20px
+    margin-left: 30px
+    display: flex
+    align-items: center
+    justify-content: center
+
+  section
+    padding: 10px 0
+    margin-top: 20px
+
+    &:first-child
+      border: 0
+      padding-top: 0
+
+    span
+      display: block
+      margin-bottom: 3px
+      line-height: 1
+
+    h1
+      font-size: 1.4em
+      text-align: left
+      letter-spacing: -1px
+      margin-bottom: 3px
+      margin-top: 0px
+      font-size: 30px
+
+.gravatar
+  float: left
+  margin-right: 10px
+
+.gravatar_edit
+  margin-top: 15px
+  
+input, textarea, select, .uneditable-input 
+  border: 1px solid #bbb
+  width: 100%
+  margin-bottom: 15px
+  
+// users/show
+
+.sign-up-message
+  margin-bottom: 30px
+  
+.signup-btn
+  margin-bottom: 30px

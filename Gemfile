@@ -74,3 +74,17 @@ gem 'bootstrap-sass'
 group :production do
   gem 'pg', '0.21.0'
 end
+
+gem "bootstrap_form"
+
+gem 'slim-rails'
+
+gem "bootstrap_form"
+
+gem 'rough_swal'
+
+gem 'sweetalert-rails'
+
+gem 'jquery-rails'
+
+gem 'bootstrap'
