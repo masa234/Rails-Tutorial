@@ -1,6 +1,8 @@
 .row
-  aside.col-md-4
+  aside.col-md-6.col-md-offset-3
     section.user_info
       h1
         = gravatar_for @user, size: 150
+      .user-name
         = @user.name
+        | さんのマイページ
