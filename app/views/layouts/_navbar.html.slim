@@ -21,7 +21,10 @@ header
                     = current_user.name
                     b.caret
                   ul.dropdown-menu
-                    = link_to "ログアウト", logout_path, method: :delete
+                    li
+                      = link_to "マイページ", user_path(current_user)
+                    li
+                      = link_to "ログアウト", logout_path, method: :delete
               -else
                 li
                   = link_to "新規登録はこちらからどうぞ" , signup_path 
