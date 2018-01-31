@@ -1,11 +1,5 @@
 module SessionsHelper
   
-  def require_sign_in?
-    return if sign_in?
-    swal{error 'ログインしてくださいませ'}
-    redirect_to "/"
-  end
-  
   def remember(user)
     user.remember
     cookies.permanent.signed[:user_id] = user.id
