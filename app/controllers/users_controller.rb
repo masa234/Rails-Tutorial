@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show edit update)
+  before_action :require_sign_in, except: %i(new create)
   
   def new 
     @user = User.new
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to @user
     else
-      swal { error 'ユーザ情報の登録に失敗しました' }
+      swal { error 'ユーザ情報の登録に失敗いたしました 必須事項をご入力くださいませ' }
       render :new
     end
   end

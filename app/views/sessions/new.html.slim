@@ -4,7 +4,10 @@ h1.text-center ログイン
     = bootstrap_form_for(:session, url: login_path) do |f|
       = f.email_field :email, label: "メールアドレス", placeholder: 'EmailAddress'
       = f.password_field :password, label: "パスワード" ,placeholder: 'Password'
+<<<<<<< HEAD
       = f.check_box :remember_me 
         span
           |ログイン情報を記憶する
+=======
+>>>>>>> 573905975aa3fab7fcbdce76775e4d164fb26503
       = f.submit "ログインする", class: "btn btn-primary signup-btn"
