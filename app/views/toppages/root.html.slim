@@ -1,4 +1,15 @@
--unless sign_in?
+-if sign_in?
+  .row
+      aside.col-md-4
+        section.user_info
+          = render 'shared/user_info'
+        section.micropost_form
+          = render 'shared/micropost_form'
+      .col-md-8.user-microposts
+          ol.microposts
+            h1 タイムライン
+          = render 'shared/feed'
+-else
   .center.jumbotron.text-center
     h1 Welcome to the Sample App
     h2
