@@ -15,5 +15,6 @@
           = render @microposts
         = will_paginate @microposts
       -else 
-        p まだつぶやきはありません つぶやいてみましょう！！
-        = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"
+        -if curent_user?(@user)
+          p まだつぶやきはありません つぶやいてみましょう！！
+          = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"
