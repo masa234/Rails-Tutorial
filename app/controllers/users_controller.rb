@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    return unless current_user.admin?
+    return unless current_user.admin?   
     @user.destroy
   end
   
