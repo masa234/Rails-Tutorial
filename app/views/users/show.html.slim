@@ -14,7 +14,6 @@
         ol.microposts
           = render @microposts
         = will_paginate @microposts
-      -else 
-        -if curent_user?(@user)
+      -elsif current_user?(@user)
           p まだつぶやきはありません つぶやいてみましょう！！
           = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"
