@@ -1,12 +1,24 @@
-.center.jumbotron.text-center
-  h1 Welcome to the Sample App
-  h2
-    | This is the home page for the
-    a href="https://railstutorial.jp/"  Ruby on Rails Tutorial
-    | sample application.
-    
-  = link_to "アカウント新規登録", signup_path , class: "btn btn-lg btn-primary"
-= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/'                          
+-if sign_in?
+  .row
+      aside.col-md-4
+        section.user_info
+          = render 'shared/user_info'
+        section.micropost_form
+          = render 'shared/micropost_form'
+      .col-md-8.user-microposts
+          ol.microposts
+            h1 Feed
+          = render 'shared/feed'
+-else
+  .center.jumbotron.text-center
+    h1 Welcome to the Sample App
+    h2
+      | This is the home page for the
+      a href="https://railstutorial.jp/"  Ruby on Rails Tutorial
+      | sample application.
+      
+    = link_to "アカウント新規登録", signup_path , class: "btn btn-lg btn-primary"
+  = link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/'                          
 
 
 

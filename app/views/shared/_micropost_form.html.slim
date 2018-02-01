@@ -1,0 +1,5 @@
+= bootstrap_form_for(@micropost) do |f|
+  .field
+    span.count 140
+    = f.text_area :content, label: "つぶやく", placeholder: "140文字以内で今の心境をつぶやいてみましょう",:size => "5x5"
+  = f.submit "つぶやく", class: "btn btn-primary"

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       remember(user)
-      redirect_to "/"
+      redirect_back_or(user)
     else
       swal { error 'ログインに失敗しました' }
       render:new
@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
   
   def destroy
     log_out if sign_in?
+    session.clear
     redirect_to "/"
   end
 end

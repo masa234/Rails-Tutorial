@@ -1,0 +1,9 @@
+.text-center
+  = will_paginate
+ul.users
+  - @users.reverse.each do |user|
+    li
+      = gravatar_for user, size: 70
+      = link_to user.name, user
+.text-center
+  = will_paginate

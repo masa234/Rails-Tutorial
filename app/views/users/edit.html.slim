@@ -1,2 +1,7 @@
-h1 Users#edit
-p Find me in app/views/users/edit.html.slim
+- provide(:button_text, 'ユーザ情報を変更する')
+.text-center.sign-up
+  h1.sign-up-message ユーザ情報編集画面
+  .row
+    .col-md-8.col-md-offset-2
+      = render 'user_form'
+      

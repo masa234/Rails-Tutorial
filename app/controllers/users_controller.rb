@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show edit update)
+  before_action :set_user, only: %i(show edit update destroy check_user)
+  before_action :require_sign_in, except: %i(new create)
+  before_action :check_user, only: %i(edit update)
   
   def new 
     @user = User.new
@@ -11,18 +13,34 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to @user
     else
-      swal { error 'ユーザ情報の登録に失敗しました' }
+      swal { error 'ユーザ情報の登録に失敗いたしました 必須事項をご入力くださいませ' }
       render :new
     end
   end
   
   def show
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def edit
   end
+  
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to @user  
+    else
+      swal { error 'ユーザ情報の編集に失敗いたしました 必須事項をご入力くださいませ' }
+      render :edit
+    end
+  end
 
   def index
+    @users = User.paginate(page: params[:page])
+  end
+  
+  def destroy
+    return unless current_user.admin?   
+    @user.destroy
   end
   
   private
@@ -36,7 +54,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
+  
+  def check_user
+    return if current_user?(@user)
+    swal { error '申し訳ございません ページ閲覧権限がございません' }
+    redirect_to "/"
+  end
 end
 
 
