@@ -1,5 +1,4 @@
 -if @users.any?
   h1.text-center
     | ユーザ一覧
-  = render @users
-
+  = render "users/users", users: @users
