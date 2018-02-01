@@ -1,0 +1,2 @@
+$('li#micropost_<%= @micropost.id %>').fadeOut(500);
+$('.user-micropost-count').html(<%= @micropost.user.microposts.count %>);

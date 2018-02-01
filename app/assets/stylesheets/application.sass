@@ -15,20 +15,20 @@
  *= require sweetalert
  *= require rails_bootstrap_forms
  *
- 
-$default-hover-color: #1bb4d3
+$body-color: lighten(skyblue, 24%)
+$default-color: skyblue
  
 body 
   font-weight: bold
-  background-color: #f2f9ff
+  background-color: $body-color
   
 //navbar
 .navbar-default .navbar-brand 
-    color: $default-hover-color
+    color: $default-color
     text-decoration: underline
     
     &:hover
-      color: $default-hover-color
+      color: $default-color
       
 .navbar-default .navbar-nav > li > a, .dropdown-menu > li > a
   &:hover
@@ -125,7 +125,7 @@ input, textarea, select, .uneditable-input
       color: #f2f9ff
   
       a
-        color: $default-hover-color
+        color: $default-color
       
     .timestanp
       margin-left: 20px
@@ -139,7 +139,8 @@ input, textarea, select, .uneditable-input
       display: block
       padding: 5px 0
     
-    
+.tweet-btn
+  margin-bottom: 20px
   
 // index
 

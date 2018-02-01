@@ -5,9 +5,15 @@
         = gravatar_for @user
         = @user.name
   .col-md-8.user-microposts
-    - if @user.microposts.any?
       h1
-        | #{@user.name}さんのつぶやきリスト(#{@user.microposts.count})
-      ol.microposts
-        = render @microposts
-      = will_paginate @microposts
+        | #{@user.name}さんのつぶやきリスト(
+        span.user-micropost-count
+          = @user.microposts.count
+        |)
+      - if @user.microposts.any?
+        ol.microposts
+          = render @microposts
+        = will_paginate @microposts
+      -else 
+        p まだつぶやきはありません つぶやいてみましょう！！
+        = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"
