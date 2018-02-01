@@ -1,11 +1,12 @@
--if user.microposts.any?
-  = will_paginate @microposts 
-    - microposts.each do |micropost|
-      li id="micropost_#{micropost.id}"
-        = link_to gravatar_for(micropost.user, size: 50)
-        span.user
-          = link_to micropost.user.name, user_path(micropost.user) 
-        span.content
-          = micropost.content
-          Posted #{time_ago_in_words(micropost.created_at)}
-  = will_paginate @microposts 
+- @microposts.each do |micropost|
+  li id="micropost_#{micropost.id}"
+    = link_to gravatar_for(micropost.user, size: 50)
+    span.user
+      = link_to micropost.user.name, user_path(micropost.user) 
+    span.timestanp
+      Posted #{time_ago_in_words(micropost.created_at)}前に投稿されました
+    span.content
+      = micropost.content
+
+  
+

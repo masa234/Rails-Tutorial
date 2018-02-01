@@ -16,10 +16,34 @@
  *= require rails_bootstrap_forms
  *
  
+$default-hover-color: #1bb4d3
+ 
 body 
   font-weight: bold
   background-color: #f2f9ff
+  
+//navbar
+.navbar-default .navbar-brand 
+    color: $default-hover-color
+    text-decoration: underline
     
+    &:hover
+      color: $default-hover-color
+      
+.navbar-default .navbar-nav > li > a, .dropdown-menu > li > a
+  &:hover
+    color: #FFF
+    background-color: gray
+    
+.dropdown-menu > li > a
+  display: block
+  padding: 10px 20px
+  clear: both
+  font-weight: 400
+  line-height: 1.42857143
+  color: #333
+  white-space: nowrap
+  
 aside
   section.user_info
     margin-top: 20px
@@ -83,6 +107,39 @@ input, textarea, select, .uneditable-input
 #session_remember_me 
   width: auto
   margin-left: 0
+
+.user-microposts  
+  background-color: #FFF
+  
+  .microposts
+    list-style: none
+    padding: 0
+    
+    li 
+      padding: 10px 0
+      border-top: 1px solid #e8e8e8
+      
+    .user
+      margin-top: 5em
+      padding: 0
+      color: #f2f9ff
+
+      a
+        color: $default-hover-color
+      
+    .timestanp
+      margin-left: 20px
+      
+    .content 
+      display: block
+      margin-left: 60px
+      margin-top: 10px
+      
+      img 
+        display: block
+        padding: 5px 0
+    
+    
   
 // index
 
@@ -100,3 +157,5 @@ h1
   
 a
   color: black
+  
+  
