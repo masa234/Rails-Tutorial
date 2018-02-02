@@ -1,6 +1,6 @@
 .reply-edit-field
   = link_to gravatar_for(current_user, size: 50)
-  = bootstrap_form_for(@micropost, remote: true) do |f|
+  = bootstrap_form_for(@reply, remote: true) do |f|
     .field
       = @micropost.user.name
       | さんへのリプライです
