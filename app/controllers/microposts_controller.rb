@@ -4,6 +4,11 @@ class MicropostsController < ApplicationController
   def edit
   end
   
+  def update
+    @micropost = current_user.microposts.build
+    @micropost.save
+  end
+  
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
