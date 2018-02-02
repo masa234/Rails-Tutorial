@@ -5,8 +5,8 @@ class MicropostsController < ApplicationController
   end
   
   def update
-    @micropost = current_user.microposts.build
-    @micropost.save
+    @user = @micropost.user
+    @micropost.update(micropost_params)
   end
   
   def create

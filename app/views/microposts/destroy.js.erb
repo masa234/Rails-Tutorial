@@ -1,2 +1,3 @@
 $('li#micropost_<%= @micropost.id %>').fadeOut(500);
-$('.user-micropost-count').html(<%= @micropost.user.microposts.count %>);
+$('.user-micropost-count').html("<%= @micropost.user.microposts.count %>");
+$('.user-feed-count').html("<%= pluralize(@micropost.user.feed.count , "micropost") %>");
