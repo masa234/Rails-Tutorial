@@ -1,5 +1,8 @@
 class MicropostsController < ApplicationController
-  before_action :check_user, only: %i(destroy)
+  before_action :check_user, only: %i(edit update destroy)
+  
+  def edit
+  end
   
   def create
     @micropost = current_user.microposts.build(micropost_params)

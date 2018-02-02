@@ -10,7 +10,7 @@ li id="micropost_#{micropost.id}"
     -if current_user?(micropost.user)
       a.btn.btn-danger.btn-sm.pull-right  rel="nofollow" data-remote=true data-method="delete" href=micropost_path(micropost) data-confirm='削除してもよろしいでしょうか？'
         | 削除する
-      a.btn.btn-primary.btn-sm.pull-right  rel="nofollow" data-remote=true  href= edit_micropost_path(micropost) 
+      a.btn.btn-primary.btn-sm.pull-right  rel="nofollow" href= edit_micropost_path(micropost) 
         | 編集する
   
 
