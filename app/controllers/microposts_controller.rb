@@ -1,5 +1,13 @@
 class MicropostsController < ApplicationController
-  before_action :check_user, only: %i(destroy)
+  before_action :check_user, only: %i(edit update destroy)
+  
+  def edit
+  end
+  
+  def update
+    @user = @micropost.user
+    @micropost.update(micropost_params)
+  end
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -8,9 +16,10 @@ class MicropostsController < ApplicationController
     else
       swal { error '140文字以内でお願いいたします' }
       @feed_items = []
-      redirect_to "/"
+      render 'toppages/root'
     end
   end
+    
   
   def destroy
     @micropost.destroy

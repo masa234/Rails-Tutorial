@@ -1,0 +1,2 @@
+$('.micropost-feed').html("<%= escape_javascript(render 'microposts/micropost', microposts: @micropost.user.feed) %>");
+$('.user-micropost-field').html("<%= escape_javascript(render 'microposts/micropost', microposts: @micropost.user.microposts) %>"); 

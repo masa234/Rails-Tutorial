@@ -1,9 +1,9 @@
-.text-center
-  = will_paginate
+
 ul.users
   - @users.reverse.each do |user|
-    li
-      = gravatar_for user, size: 70
-      = link_to user.name, user
-.text-center
-  = will_paginate
+      li id="user_#{user.id}" 
+        = gravatar_for user, size: 70
+        = link_to user.name, user
+        - if current_user.admin? && !current_user?(user)
+          a.btn.btn-danger.btn-sm.pull-right data-remote="true" rel="nofollow" data-method="delete" href=user_path(user) data-confirm='削除してもよろしいでしょうか？'
+            | 削除する

@@ -11,9 +11,9 @@
           = @user.microposts.count
         |)
       - if @user.microposts.any?
-        ol.microposts
-          = render @microposts
+        ol.microposts.user-micropost-field
+          = render "microposts/micropost", microposts: @microposts
         = will_paginate @microposts
-      -else 
-        p まだつぶやきはありません つぶやいてみましょう！！
-        = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"
+      -elsif current_user?(@user)
+          p まだつぶやきはありません つぶやいてみましょう！！
+          = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"

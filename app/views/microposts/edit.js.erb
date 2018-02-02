@@ -1,0 +1,2 @@
+$('li#micropost_<%= @micropost.id %>').html("<%= escape_javascript(render 'microposts/edit_form', micropost: @micropost) %>");
+

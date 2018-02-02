@@ -1,0 +1,10 @@
+.reply-edit-field
+  = link_to gravatar_for(current_user, size: 50)
+  = bootstrap_form_for([@micropost, @reply], remote: true) do |f|
+    .field
+      = @micropost.user.name
+      | さんへリプライを送ってあげましょう
+      = f.hidden_field :user_name, value: current_user.name
+      = f.text_area :message, label: "リプライ", placeholder: "リプライしましょう",:size => "5x5"
+    = f.submit "replyを送信", class: "btn btn-info"
+    
