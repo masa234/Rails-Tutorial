@@ -15,7 +15,7 @@
         | 削除する
       a.btn.btn-primary.btn-sm.pull-right  rel="nofollow" data-remote=true  href= edit_micropost_path(micropost)  
         | 編集する
-      div id="reply_#{micropost.id}"
-        -if micropost.replies.any?
-          = render "replies/reply", replies: micropost.replies, micropost: micropost
+    div id="reply_#{micropost.id}"
+      -if micropost.replies.any?
+        = render "replies/reply", replies: micropost.replies, micropost: micropost
 

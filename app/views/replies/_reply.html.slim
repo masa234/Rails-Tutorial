@@ -1,6 +1,8 @@
-- replies.each do |reply|
-    .reply-field
-      = link_to "@#{micropost.user.name}", reply.user ,class: "reply-to"
-      = link_to gravatar_for(reply.user, size: 50)
-      = reply.message
-      
+- replies.each_with_index do |reply|
+  .reply-field
+    = link_to "@#{micropost.user.name}", reply.user ,class: "reply-to"
+    = link_to gravatar_for(reply.user, size: 50)
+    = reply.message
+    a.btn.btn-danger.btn-sm.pull-right.reply-delete-btn  rel="nofollow" data-method="delete" href= micropost_reply_path(micropost, reply) data-confirm='削除してもよろしいでしょうか？'
+      | 削除する
+   

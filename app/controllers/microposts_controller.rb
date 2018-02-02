@@ -11,8 +11,15 @@ class MicropostsController < ApplicationController
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    @micropost.save
+    if @micropost.save
+      redirect_to "/"
+    else
+      swal { error '140文字以内でお願いいたします' }
+      @feed_items = []
+      render 'toppages/root'
+    end
   end
+    
   
   def destroy
     @micropost.destroy

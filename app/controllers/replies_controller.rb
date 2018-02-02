@@ -12,6 +12,15 @@ class RepliesController < ApplicationController
     @reply.save!
   end
   
+  def destroy
+    @reply = Reply.find(params[:id])
+    if @reply && current_user?(@reply.user)
+      @reply.destroy
+    else
+      redirect_to "/"
+    end
+  end
+  
   private
     def set_micropost
       @micropost = Micropost.find(params[:micropost_id])
