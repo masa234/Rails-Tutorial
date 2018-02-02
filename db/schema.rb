@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 20180202032339) do
   create_table "replies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "micropost_id"
-    t.string "reply_user_name"
-    t.text "reply_message"
+    t.string "user_name"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["micropost_id"], name: "index_replies_on_micropost_id"

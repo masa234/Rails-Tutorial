@@ -21,6 +21,7 @@ $default-color: skyblue
 body 
   font-weight: bold
   background-color: $body-color
+  word-wrap : break-word
   
 //navbar
 .navbar-default .navbar-brand 
@@ -162,8 +163,25 @@ a
   
 //root
 
-.reply-edit-field 
+.reply-edit-field
   background-color: lighten(gray, 40%)
-  padding: 20px
+  padding: 30px
   margin: 20px
   border-radius: 0%
+
+
+.reply-field
+  background-color: lighten(gray, 40%)
+  padding: 30px
+  margin: 20px
+  border-radius: 0%
+  display: flex
+  align-items: center
+  position: relative
+    // justify-content: center
+  .reply-to
+    position: absolute
+    top: 8px
+    left: 35px
+    font-size: 18px
+    color: skyblue

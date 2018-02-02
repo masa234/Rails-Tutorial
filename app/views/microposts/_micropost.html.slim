@@ -9,11 +9,13 @@
       = micropost.content
     span.reply 
       = link_to "返信", new_micropost_reply_path(micropost), class: "btn btn-info btn-sm", remote: true
-    div id="reply_#{micropost.id}"
+      = micropost.replies.count
     -if current_user?(micropost.user)
       a.btn.btn-danger.btn-sm.pull-right  rel="nofollow" data-remote=true data-method="delete" href=micropost_path(micropost) data-confirm='削除してもよろしいでしょうか？'
         | 削除する
       a.btn.btn-primary.btn-sm.pull-right  rel="nofollow" data-remote=true  href= edit_micropost_path(micropost)  
         | 編集する
-    
+      div id="reply_#{micropost.id}"
+        -if micropost.replies.any?
+          = render "replies/reply", replies: micropost.replies, micropost: micropost
 

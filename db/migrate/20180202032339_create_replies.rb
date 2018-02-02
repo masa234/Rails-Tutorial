@@ -4,8 +4,8 @@ class CreateReplies < ActiveRecord::Migration[5.1]
       t.references :user, foreign_key: true
       t.references :micropost, foreign_key: true
       
-      t.string :reply_user_name
-      t.text :reply_message
+      t.string :user_name
+      t.text :message
 
       t.timestamps
     end

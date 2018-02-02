@@ -1,0 +1,6 @@
+- replies.each do |reply|
+    .reply-field
+      = link_to "@#{micropost.user.name}", reply.user ,class: "reply-to"
+      = link_to gravatar_for(reply.user, size: 50)
+      = reply.message
+      
