@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   post  'user/login',  to: 'sessions#create'
   delete  'user/logout',  to: 'sessions#destroy', as: "logout"
   resources :users
-  resources :microposts, only: %i(edit update create destroy)
+  resources :microposts, only: %i(edit update create destroy) do
+    resources :replies, onlu: %i(new edit update create destroy) 
+  end
 end
+
  
  

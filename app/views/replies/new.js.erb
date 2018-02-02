@@ -1,0 +1,2 @@
+
+$('#reply_<%= @micropost.id %>').html("<%= escape_javascript(render 'reply_form', micropost: @micropost) %>");
