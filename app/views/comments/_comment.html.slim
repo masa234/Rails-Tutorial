@@ -1,6 +1,6 @@
 - comments.each do |comment|
   .comment-field
-    = link_to "#{micropost.user.name}", comment.user ,class: "comment-to"
+    = link_to "#{comment.user.name}", comment.user ,class: "comment-to"
     = link_to gravatar_for(comment.user, size: 50)
     = comment.message
     a.btn.btn-danger.btn-sm.pull-right.comment-delete-btn  rel="nofollow" data-method="delete" href= micropost_comment_path(micropost, comment) data-confirm='削除してもよろしいでしょうか？'
