@@ -14,9 +14,12 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment= Comment.find(params[:id])
-    if @comment&& current_user?(@comment.user)
+    if @comment && current_user?(@comment.user)
       @comment.destroy
+      swal{success '削除しました'}
+      redirect_back(fallback_location: root_path)
     else
+      swal{success '削除権限がありません'}
       redirect_to "/"
     end
   end
