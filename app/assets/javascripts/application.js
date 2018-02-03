@@ -18,7 +18,7 @@
 
 $(function(){
     var maxlength = 140;
-    $('textarea').bind('keyup keydown keypress change', function(){
+    $('textarea').on('keyup keydown keypress change', function(){
        var thisValueLength = $(this).val().length;
        var countlength = (maxlength)-(thisValueLength );
        $('.count').html(countlength);
