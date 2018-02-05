@@ -86,6 +86,8 @@ input, textarea, select, .uneditable-input
   border: 1px solid #bbb
   width: 100%
   margin-bottom: 15px
+  border-radius: 0px
+  margin: 10px
   
 // users/show
 
@@ -163,15 +165,15 @@ a
   
 //root
 
-.reply-edit-field
+.comment-edit-field
   background-color: lighten(gray, 40%)
   padding: 30px
   margin: 20px
   border-radius: 0%
 
 
-.reply-field
-  background-color: lighten(gray, 40%)
+.comment-field
+  background-color: darken(#FFF, 5%)
   padding: 30px
   margin: 20px
   border-radius: 0%
@@ -179,14 +181,33 @@ a
   align-items: center
   position: relative
     // justify-content: center
-  .reply-to
-    position: absolute
-    top: 8px
-    left: 35px
-    font-size: 18px
-    color: skyblue
+.comment-to
+  position: absolute
+  top: 8px
+  left: 35px
+  font-size: 18px
+  color: skyblue
+  
+.new-comment-btn
+  padding: 8px
     
-.reply-delete-btn
+.comment-delete-btn
   position: absolute
   bottom: 10px 
   right: 10px
+  
+.btn, textarea
+  margin: 4px
+  border-radius: 0px
+  
+  &:hover
+    opacity: 5
+
+.btn-sm:hover
+  -webkit-transform: scale(1.04)
+  -moz-transform: scale(1.04)
+  -o-transform: scale(1.04)
+  -ms-transform: scale(1.04)
+  transform: scale(1.04)
+  
+  

@@ -1,0 +1,2 @@
+
+$('#comment_<%= @micropost.id %>').html("<%= escape_javascript(render 'comment_form', micropost: @micropost) %>");
