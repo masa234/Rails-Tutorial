@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :require_sign_in
-  before_action :set_micropost
+  before_action :set_micropost, only: %i(new create)
   
   def new
     @comment = current_user.comments.build(user_name: current_user.name, micropost_id: @micropost.id)
