@@ -19,8 +19,8 @@ class CommentsController < ApplicationController
       swal{success '削除しました'}
       redirect_back(fallback_location: root_path)
     else
-      swal{success '削除権限がありません'}
-      redirect_to "/"
+      swal{error '削除権限がありません'}
+      redirect_back(fallback_location: root_path)
     end
   end
   
