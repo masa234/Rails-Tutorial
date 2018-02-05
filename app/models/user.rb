@@ -11,6 +11,11 @@ class User < ApplicationRecord
   
   has_many :microposts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :followings, through: :active_relationships, source: :followed
+                                                            
   
   
   def User.digest(string)
@@ -40,5 +45,18 @@ class User < ApplicationRecord
   
   def feed
     Micropost.where("user_id = ?", id)
+  end
+  
+  def follow(other_user)
+    self.active_relationships.create(followed_id: other_user.id)
+  end
+  
+  def unfollow(other_user)
+    relationship = active_relationships.find_by(followed_id: other_user.id)
+    relationship.destroy if relationship
+  end
+  
+  def follow?(other_user)
+    self.following.include?(other_user)
   end
 end
