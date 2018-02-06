@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id 
       redirect_to @user
     else
-      swal { error 'ユーザ情報の登録に失敗いたしました 必須事項をご入力くださいませ' }
+      swal { error 'ユーザ情報の登録に失敗いたしました' }
       render :new
     end
   end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to @user  
     else
-      swal { error 'ユーザ情報の編集に失敗いたしました 必須事項をご入力くださいませ' }
+      swal { error 'ユーザ情報の編集に失敗いたしました' }
       render :edit
     end
   end
@@ -39,16 +39,18 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    return unless current_user.admin?   
+    return unless current_user.admin? 
     @user.destroy
   end
   
   def following
+    @title = "Following"
     @users = @user.following
     render 'show_follow'
   end
   
   def followers
+    @title = "Followers"
     @users = @user.followers
     render 'show_follow'
   end
@@ -66,7 +68,7 @@ class UsersController < ApplicationController
   end
   
   def check_user
-    return if current_user?(@user)
+    return if current_user?(@user) 
     swal { error '申し訳ございません ページ閲覧権限がございません' }
     redirect_to "/"
   end
