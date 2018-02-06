@@ -16,5 +16,5 @@
   ol.user-follow.col-md-8
     h2 Follow
     - if @users.any?
-      ul.users_follow
+      ul.users_follow.follow_form
         = render 'users/users', users: @users

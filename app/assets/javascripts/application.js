@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require_tree .
 //= require sweetalert
+//= require turbolinks
 
 $(function(){
     var maxlength = 140;
