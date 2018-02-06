@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :microposts, only: %i(edit update create destroy) do
     resources :comments, only: %i(new create destroy) 
   end
+  resources :relationships, only: %i(create destroy)
 end
 
  
