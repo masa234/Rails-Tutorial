@@ -6,10 +6,15 @@ Rails.application.routes.draw do
   get  'user/login',  to: 'sessions#new', as: "login"
   post  'user/login',  to: 'sessions#create'
   delete  'user/logout',  to: 'sessions#destroy', as: "logout"
-  resources :users
+  resources :users  do
+    member do
+      get :following, :followers
+    end
+  end
   resources :microposts, only: %i(edit update create destroy) do
     resources :comments, only: %i(new create destroy) 
   end
+  resources :relationships, only: %i(create destroy)
 end
 
  

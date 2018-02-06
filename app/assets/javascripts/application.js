@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require_tree .
 //= require sweetalert
+//= require turbolinks
 
 $(function(){
     var maxlength = 140;
@@ -22,7 +23,7 @@ $(function(){
        var thisValueLength = $(this).val().length;
        var countlength = (maxlength)-(thisValueLength );
        $('.count').html(countlength);
-       if (countlength > 0){
+       if (countlength >= 0){
            $('.count').css({color:'green',fontWeight:'bold'});
            $('textarea').css({borderColor:'#1bb4d3'});
        } else {

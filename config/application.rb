@@ -12,6 +12,7 @@ module RailsTutorial
     config.load_defaults 5.1
     config.generators.template_engine = :slim
     config.i18n.default_locale = :ja
+    config.action_view.embed_authenticity_token_in_remote_forms = true
 
 
     # Settings in config/environments/* take precedence over those specified here.

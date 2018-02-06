@@ -15,7 +15,7 @@ class MicropostsController < ApplicationController
       redirect_to "/"
     else
       swal { error '140文字以内でお願いいたします' }
-      @feed_items = []
+      @feed_items = current_user.feed
       render 'toppages/root'
     end
   end
@@ -23,6 +23,8 @@ class MicropostsController < ApplicationController
   
   def destroy
     @micropost.destroy
+    swal { success '削除しました'}
+    redirect_back(fallback_location: root_path)
   end
     
   private 

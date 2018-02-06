@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show edit update destroy check_user)
-  before_action :require_sign_in, except: %i(new create)
+  before_action :set_user, only: %i(show edit update destroy followers following check_user)
+  before_action :require_sign_in, except: %i(new create following followers)
   before_action :check_user, only: %i(edit update)
   
   def new 
@@ -43,6 +43,16 @@ class UsersController < ApplicationController
     @user.destroy
   end
   
+  def following
+    @users = @user.following
+    render 'show_follow'
+  end
+  
+  def followers
+    @users = @user.followers
+    render 'show_follow'
+  end
+    
   private
   
   def set_user

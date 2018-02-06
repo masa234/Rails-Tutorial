@@ -111,7 +111,7 @@ input, textarea, select, .uneditable-input
   width: auto
   margin-left: 0
 
-.user-microposts  
+.user-microposts, .user-follow
   background-color: #FFF
   
   .microposts
@@ -156,7 +156,7 @@ input, textarea, select, .uneditable-input
     // font-size: 30px
     border-bottom: 1px solid gray
     
-h1 
+h1, h2
   font-weight: bold
   
 a
@@ -190,6 +190,7 @@ a
   
 .new-comment-btn
   padding: 8px
+  margin: 20px
     
 .comment-delete-btn
   position: absolute
@@ -210,4 +211,43 @@ a
   -ms-transform: scale(1.04)
   transform: scale(1.04)
   
+//フォロワー統計表示のデザイン
+
+.stats
+  overflow: auto
+  margin-top: 0
+  padding: 0
+  
+  a 
+    float: left
+    padding: 0 10px
+    border-left: 1px solid gray
+    font-size: 18px
+    
+    &:first-child
+      padding-right: 10px
+      border: 0
+    
+    &:hover
+      text-decolation: none
+      color: $default-color
+  
+  strong
+    display: block
+
+.user_avatars 
+  overflow: auto
+  margin-top: 10px
+  .gravatar 
+    margin: 1px 1px
+  
+  a 
+    padding: 0
+  
+
+
+a.user 
+  border: none
+  
+
   

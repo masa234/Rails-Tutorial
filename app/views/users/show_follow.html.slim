@@ -1,0 +1,20 @@
+.row
+  aside.col-md-4
+    section.user_info
+      = gravatar_for @user
+      h1= @user.name
+      span= link_to "プロフィールを見る", @user, class: "btn-primary btn "
+      span
+        b Microposts:
+        = @user.microposts.count
+    section.stats
+      = render 'shared/stats'
+      - if @users.any?
+        .user_avatars
+          - @users.each do |user|
+            = link_to gravatar_for(user, size: 30), user, class: "user"
+  ol.user-follow.col-md-8
+    h2 Follow
+    - if @users.any?
+      ul.users_follow.follow_form
+        = render 'users/users', users: @users

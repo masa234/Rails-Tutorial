@@ -4,6 +4,9 @@
       h1
         = gravatar_for @user
         = @user.name
+    section.stats
+      = render "shared/stats"
+    = render "follow_form", user: @user
   .col-md-8.user-microposts
       h1
         | #{@user.name}さんのつぶやきリスト(
