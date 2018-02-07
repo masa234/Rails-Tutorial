@@ -9,7 +9,13 @@ class CommentsController < ApplicationController
   def create
     @comment= @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.save!
+    if @comment.save
+      swal{success 'コメントを作成しました'}
+      redirect_back(fallback_location: root_path)
+    else
+      swal{error '0～140文字でお願いいたします'}
+      redirect_back(fallback_location: root_path)
+    end
   end
   
   def destroy

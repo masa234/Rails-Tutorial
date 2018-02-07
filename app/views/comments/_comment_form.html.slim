@@ -1,6 +1,6 @@
 .comment-edit-field
   = link_to gravatar_for(current_user, size: 50)
-  = form_for([@micropost, @comment], remote: true) do |f|
+  = form_for([@micropost, @comment]) do |f|
     .field
       | コメントを送ってあげましょう
       = f.text_area :message, placeholder: "140文字でお願いします",:size => "5x5"
