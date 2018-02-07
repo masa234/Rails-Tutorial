@@ -2,13 +2,13 @@
   aside.col-md-4
     section.user_info
       = gravatar_for @user
-      h1= @user.name
-      p ニックネーム: @#{@user.nickname}
-      /li id="micropost_#{micropost.id}"
-      span= link_to "プロフィールを見る", @user, class: "btn-primary btn "
+      h1= @user.name 
+      p  @#{@user.nickname}
       span
         b Microposts:
         = @user.microposts.count
+      p Microposts: = @user.microposts.count
+      = link_to "プロフィールを見る", @user, class: "btn-primary btn "
     section.stats
       = render 'shared/stats'
       - if @users.any?

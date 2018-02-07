@@ -4,7 +4,7 @@
       h1
         = gravatar_for @user
         = @user.name
-      p nickname: @#{@user.nickname}
+      p @#{@user.nickname}
     section.stats
       = render "shared/stats"
     = render "follow_form", user: @user

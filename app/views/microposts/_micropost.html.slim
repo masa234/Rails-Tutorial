@@ -4,7 +4,7 @@
     .micropost-content
       span.user
         = link_to micropost.user.name, user_path(micropost.user) 
-      p nickname:#{micropost.user.nickname}
+      span.nickname @#{micropost.user.nickname}
       .timestanp
         Posted #{time_ago_in_words(micropost.created_at)}前に投稿されました
       span.content
