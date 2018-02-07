@@ -14,5 +14,5 @@ class Micropost < ApplicationRecord
     end
   end
   
-  scope :including_replies, ->(user){where("in_reply_to = ? OR in_reply_to = ? OR user_id = ?", "", "@#{user.id}", user.id)}
+  scope :including_replies, ->(user){where("in_reply_to = ? OR in_reply_to = ? OR user_id = ?", "", "@#{user.nickname}", user.id)}
 end
