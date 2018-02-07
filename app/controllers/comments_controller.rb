@@ -3,13 +3,19 @@ class CommentsController < ApplicationController
   before_action :set_micropost, only: %w(new create)
   
   def new
-    @comment = current_user.comments.build(user_name: current_user.name, micropost_id: @micropost.id)
+    @comment = current_user.comments.build(micropost_id: @micropost.id)
   end
   
   def create
     @comment= @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.save!
+    if @comment.save
+      swal{success 'コメントを作成しました'}
+      redirect_back(fallback_location: root_path)
+    else
+      swal{error '0～140文字でお願いいたします'}
+      redirect_back(fallback_location: root_path)
+    end
   end
   
   def destroy
@@ -30,6 +36,6 @@ class CommentsController < ApplicationController
     end
   
     def comment_params
-      params.require(:comment).permit(:message, :user_name)
+      params.require(:comment).permit(:message)
     end
 end

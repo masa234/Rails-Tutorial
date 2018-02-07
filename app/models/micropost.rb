@@ -9,8 +9,10 @@ class Micropost < ApplicationRecord
   
   
   def reply_user
-    if user_unique_name = content.match(/(@[^\s]+)\s.*/)
-      user_unique_name[1]
+    if nickname = content.match(/(@[^\s]+)\s.*/)
+      nickname[1]
     end
   end
+  
+  scope :including_replies, ->(user){where("in_reply_to = ? OR in_reply_to = ? OR user_id = ?", "", "@#{user.id}", user.id)}
 end

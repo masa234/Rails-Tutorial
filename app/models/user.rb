@@ -3,7 +3,7 @@ class User < ApplicationRecord
   before_save { self.email.downcase! }
   before_save { self.nickname.gsub!(" ", "") }
   validates :name,  presence: true, length: { maximum: 20 }
-  validates :nickname, presence: true,  uniqueness: true, length: {maximum: 15}
+  validates :nickname, presence: true,  uniqueness: true, length: {maximum: 15}, allow_nil: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
@@ -49,11 +49,9 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
   
-  def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE follower_id = :user_id"
-    Micropost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
+  def feed(user)
+    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.including_replies(user).where("user_id IN (#{following_ids})  OR user_id = :user_id", user_id: id)
   end
   
   def follow(other_user)

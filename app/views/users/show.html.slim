@@ -4,7 +4,7 @@
       h1
         = gravatar_for @user
         = @user.name
-      p nickname: @#{@user.nickname}
+      p @#{@user.nickname}
     section.stats
       = render "shared/stats"
     = render "follow_form", user: @user
@@ -17,7 +17,6 @@
       - if @user.microposts.any?
         ol.microposts.user-micropost-field
           = render "microposts/micropost", microposts: @microposts
-        = will_paginate @microposts
       -elsif current_user?(@user)
           p まだつぶやきはありません つぶやいてみましょう！！
           = link_to "つぶやいてみる", root_path, class: "btn btn-primary btn-sm tweet-btn"
