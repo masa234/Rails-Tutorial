@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show edit update destroy followers following check_user)
-  before_action :require_sign_in, except: %i(new create following followers)
-  before_action :check_user, only: %i(edit update)
+  before_action :set_user, only: %w(show edit update destroy followers following check_user)
+  before_action :require_sign_in, except: %w(new create following followers)
+  before_action :check_user, only: %w(edit update)
   
   def new 
     @user = User.new
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :nickname ,:password, :password_confirmation)
   end
   
   def check_user

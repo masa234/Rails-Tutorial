@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :check_user, only: %i(edit update destroy)
+  before_action :check_user, only: %w(edit update destroy)
   
   def edit
   end
