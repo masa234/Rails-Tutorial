@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @microposts = @user.microposts.including_replies(@user)
+    @microposts = @user.microposts
   end
 
   def edit
