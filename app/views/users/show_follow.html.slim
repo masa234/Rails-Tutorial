@@ -3,6 +3,8 @@
     section.user_info
       = gravatar_for @user
       h1= @user.name
+      p ニックネーム: @#{@user.nickname}
+      /li id="micropost_#{micropost.id}"
       span= link_to "プロフィールを見る", @user, class: "btn-primary btn "
       span
         b Microposts:
@@ -14,7 +16,7 @@
           - @users.each do |user|
             = link_to gravatar_for(user, size: 30), user, class: "user"
   ol.user-follow.col-md-8
-    h2 Follow
+    h2 = @title
     - if @users.any?
-      ul.users_follow.follow_form
+      ul.users_follow.microposts
         = render 'users/users', users: @users

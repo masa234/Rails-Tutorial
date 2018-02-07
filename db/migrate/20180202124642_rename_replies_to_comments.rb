@@ -3,3 +3,4 @@ class RenameRepliesToComments < ActiveRecord::Migration[5.1]
     rename_table :replies, :comments
   end
 end
+
