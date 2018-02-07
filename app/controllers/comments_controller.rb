@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_micropost, only: %w(new create)
   
   def new
-    @comment = current_user.comments.build(user_name: current_user.name, micropost_id: @micropost.id)
+    @comment = current_user.comments.build(micropost_id: @micropost.id)
   end
   
   def create
@@ -30,6 +30,6 @@ class CommentsController < ApplicationController
     end
   
     def comment_params
-      params.require(:comment).permit(:message, :user_name)
+      params.require(:comment).permit(:message)
     end
 end

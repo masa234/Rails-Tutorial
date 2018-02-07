@@ -3,7 +3,6 @@
   = form_for([@micropost, @comment], remote: true) do |f|
     .field
       | コメントを送ってあげましょう
-      = f.hidden_field :user_name, value: current_user.name
       = f.text_area :message, placeholder: "140文字でお願いします",:size => "5x5"
     = f.submit "コメントを送信", class: "btn btn-info"
     
