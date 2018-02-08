@@ -5,6 +5,6 @@ ul.users
         = gravatar_for user, size: 70
         = link_to user.name, user
         - if current_user.admin? && !current_user?(user)
-          a.btn.btn-danger.btn-sm.pull-right data-remote="true" rel="nofollow" data-method="delete" href=user_path(user) data-confirm='削除してもよろしいでしょうか？'
+          a.btn.btn-danger.btn-sm.pull-right  rel="nofollow" data-method="delete" href=user_path(user) data-confirm='削除してもよろしいでしょうか？'
             | 削除する
 = paginate users
