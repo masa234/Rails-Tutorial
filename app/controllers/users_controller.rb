@@ -42,6 +42,7 @@ class UsersController < ApplicationController
     return unless current_user.admin? 
     @user.destroy
     swal { success '削除が完了しました' }
+    redirect_back(fallback_location: root_path)
   end
   
   def following
