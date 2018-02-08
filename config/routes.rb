@@ -11,10 +11,11 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :microposts, only: %i(edit update create destroy) do
-    resources :comments, only: %i(new create destroy) 
+  resources :microposts, only: %w(edit update create destroy) do
+    resources :comments, only: %w(new create destroy) 
   end
-  resources :relationships, only: %i(create destroy)
+  resources :relationships, only: %w(create destroy)
+  resources :create, only: %w(create destroy)
 end
 
  
