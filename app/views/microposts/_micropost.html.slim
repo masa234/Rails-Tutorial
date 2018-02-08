@@ -1,23 +1,26 @@
 - microposts.each do |micropost|
   li id="micropost_#{micropost.id}"
-    = link_to gravatar_for(micropost.user, size: 50)
-    .micropost-content
-      span.user
-        = link_to micropost.user.name, user_path(micropost.user) 
-      span.nickname @#{micropost.user.nickname}
-      .timestanp
-        Posted #{time_ago_in_words(micropost.created_at)}前に投稿されました
-      span.content
-        = micropost.content
-      span.comment 
-        = link_to "コメントしてみる", new_micropost_comment_path(micropost), class: "btn btn-info btn-sm new-comment-btn", remote: true
-        = micropost.comments.count
-      -if current_user?(micropost.user)
-        a.btn.btn-danger.btn-sm.pull-right  rel="nofollow" data-method="delete" href=micropost_path(micropost) data-confirm='削除してもよろしいでしょうか？'
-          | 削除する
-        a.btn.btn-primary.btn-sm.pull-right  rel="nofollow" data-remote=true  href= edit_micropost_path(micropost)  
-          | 編集する
-      div id="comment_#{micropost.id}"
-      -if micropost.comments.any?
-        = render "comments/comment", comments: micropost.comments, micropost: micropost
+    .micropost-wrapper
+      = link_to gravatar_for(micropost.user, size: 50)
+      .micropost-content
+        span.user
+          = link_to micropost.user.name, user_path(micropost.user) 
+        span.nickname @#{micropost.user.nickname}
+        .timestanp
+          Posted #{time_ago_in_words(micropost.created_at)}前に投稿されました
+        span.content
+          = micropost.content
+        span.comment 
+          = link_to "コメントしてみる", new_micropost_comment_path(micropost), class: "btn btn-info btn-sm new-comment-btn", remote: true
+          = micropost.comments.count
+        span.like.pull-right
+          = render 'likes/like_form', micropost: micropost
+        -if current_user?(micropost.user)
+          a.btn.btn-primary.btn-sm  rel="nofollow" data-remote=true  href= edit_micropost_path(micropost)  
+            | 編集する
+          a.btn.btn-danger.btn-sm  rel="nofollow" data-method="delete" href=micropost_path(micropost) data-confirm='削除してもよろしいでしょうか？'
+            | 削除する
+    div id="comment_#{micropost.id}"
+    -if micropost.comments.any?
+      = render "comments/comment", comments: micropost.comments, micropost: micropost
 

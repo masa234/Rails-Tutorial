@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :comments, only: %w(new create destroy) 
   end
   resources :relationships, only: %w(create destroy)
-  resources :create, only: %w(create destroy)
+  resources :likes, only: %w(create destroy)
 end
 
  

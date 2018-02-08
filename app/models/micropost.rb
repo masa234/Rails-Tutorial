@@ -6,6 +6,7 @@ class Micropost < ApplicationRecord
   default_scope -> { order(created_at: :desc)}
   
   has_many :comments, dependent: :destroy
+  has_many :comment_users, through: :comments, source: :user
   has_many :likes, dependent: :destroy
   has_many :like_users, through: :likes, source: :user
   
@@ -19,6 +20,6 @@ class Micropost < ApplicationRecord
   scope :including_replies, ->(user){where("in_reply_to = ? OR in_reply_to = ? OR user_id = ?", "", "@#{user.nickname}", user.id)}
   
   def like_user?(user)
-    like_user.include(user)
+    like_users.include?(user)
   end
 end

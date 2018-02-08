@@ -1,0 +1,6 @@
+span id="like_#{micropost.id}"
+ -if micropost.like_user?(current_user)
+   = render 'likes/unlike', micropost: micropost
+ -else
+   = render 'likes/like', micropost: micropost
+ = render 'likes/like_users', micropost: micropost
