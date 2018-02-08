@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   def destroy
     return unless current_user.admin? 
     @user.destroy
-    swal{success '削除が完了しました'}
+    swal { success '削除が完了しました' }
   end
   
   def following
