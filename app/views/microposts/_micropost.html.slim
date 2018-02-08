@@ -23,4 +23,5 @@
     div id="comment_#{micropost.id}"
     -if micropost.comments.any?
       = render "comments/comment", comments: micropost.comments, micropost: micropost
+= paginate microposts 
 

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @microposts = @user.microposts
+    @microposts = @user.microposts.page(params[:page])
   end
 
   def edit
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
   end
   
   def destroy
@@ -45,13 +45,13 @@ class UsersController < ApplicationController
   
   def following
     @title = "Following"
-    @users = @user.following
+    @users = @user.following.page(params[:page])
     render 'show_follow'
   end
   
   def followers
     @title = "Followers"
-    @users = @user.followers
+    @users = @user.followers.page(params[:page])
     render 'show_follow'
   end
     
