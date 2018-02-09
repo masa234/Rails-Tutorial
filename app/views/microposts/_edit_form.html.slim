@@ -1,5 +1,5 @@
 = link_to gravatar_for(@micropost.user, size: 50)
-= bootstrap_form_for(@micropost, remote: true) do |f|
+= bootstrap_form_for(@micropost,remote: true) do |f|
   .field
     = f.text_area :content, label: "つぶやく", placeholder: "140文字以内で今の心境をつぶやいてみましょう",:size => "5x5"
   = f.submit "つぶやきを更新する", class: "btn btn-success"
