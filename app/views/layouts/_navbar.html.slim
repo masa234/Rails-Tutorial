@@ -12,8 +12,6 @@ header
           | Micropost
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right
-            li.dropdown
-              a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button"
               -if sign_in?
                 li
                   = link_to "ユーザ一覧", users_path

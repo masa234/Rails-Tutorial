@@ -1,2 +1,2 @@
-$('.micropost-feed').html("<%= escape_javascript(render 'microposts/micropost', microposts: current_user.feed(current_user)) %>");
-$('.user-micropost-field').html("<%= escape_javascript(render 'microposts/micropost', microposts: @user.microposts) %>"); 
+$('.micropost-feed').html("<%= escape_javascript(render 'microposts/micropost', microposts: current_user.feed(current_user).page(params[:page])) %>");
+$('.user-micropost-field').html("<%= escape_javascript(render 'microposts/micropost', microposts: @user.microposts.page(params[:page])) %>"); 
