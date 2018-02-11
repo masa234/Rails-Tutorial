@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %w(show edit update destroy followers following check_user)
+  before_action :set_user, only: %w(show edit update destroy followers following likes check_user)
   before_action :require_sign_in, except: %w(new create following followers)
   before_action :check_user, only: %w(edit update)
   
@@ -56,7 +56,13 @@ class UsersController < ApplicationController
     @users = @user.followers.page(params[:page])
     render 'show_follow'
   end
-    
+  
+  def likes
+    @title = "Likes"
+    @like_micropost = @user.like_microposts.page(params[:page])
+    render 'like'
+  end
+  
   private
   
   def set_user

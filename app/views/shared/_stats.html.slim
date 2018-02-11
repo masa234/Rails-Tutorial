@@ -8,3 +8,7 @@
     strong#followers-count.stat
       = @user.followers.count
     | followers
+  a href="#{likes_user_path(@user)}" 
+    strong#likes-count.stat
+      = @user.likes.count
+    | likes
