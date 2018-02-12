@@ -1,6 +1,6 @@
 
 ul.users
-  - @users.reverse.each do |user|
+  - @users.each do |user|
       li id="user_#{user.id}" 
         = gravatar_for user, size: 70
         = link_to user.name, user
