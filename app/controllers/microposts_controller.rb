@@ -16,7 +16,7 @@ class MicropostsController < ApplicationController
       redirect_to "/"
     else
       swal { error '140文字以内でお願いいたします' }
-      @feed_items = current_user.feed(current_user)
+      @feed_items = current_user.feed(current_user).page(params[:page])
       render 'toppages/root'
     end
   end

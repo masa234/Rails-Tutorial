@@ -1,0 +1,4 @@
+= form_for(micropost.likes.find_by(user_id: current_user.id), method: :delete, remote: true)
+  = button_tag(class: "btn btn-default btn-sm btn-danger") do
+    = content_tag :span, "いいね済み", class: "glyphicon glyphicon-heart"
+    = micropost.likes.count

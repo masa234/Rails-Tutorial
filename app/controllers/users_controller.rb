@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %w(show edit update destroy followers following check_user)
+  before_action :set_user, only: %w(show edit update destroy followers following likes check_user)
   before_action :require_sign_in, except: %w(new create following followers)
   before_action :check_user, only: %w(edit update)
   
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @microposts = @user.microposts
+    @microposts = @user.microposts.page(params[:page])
   end
 
   def edit
@@ -35,26 +35,34 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.order("created_at DESC").page(params[:page])
   end
   
   def destroy
     return unless current_user.admin? 
     @user.destroy
+    swal { success '削除が完了しました' }
+    redirect_back(fallback_location: root_path)
   end
   
   def following
     @title = "Following"
-    @users = @user.following
+    @users = @user.following.page(params[:page])
     render 'show_follow'
   end
   
   def followers
     @title = "Followers"
-    @users = @user.followers
+    @users = @user.followers.page(params[:page])
     render 'show_follow'
   end
-    
+  
+  def likes
+    @title = "Likes"
+    @like_micropost = @user.like_microposts.page(params[:page])
+    render 'like'
+  end
+  
   private
   
   def set_user

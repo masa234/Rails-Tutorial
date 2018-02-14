@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
       swal{success 'コメントを作成しました'}
       redirect_back(fallback_location: root_path)
     else
-      swal{error '0～140文字でお願いいたします'}
+      swal{error '1～140文字でお願いいたします'}
       redirect_back(fallback_location: root_path)
     end
   end

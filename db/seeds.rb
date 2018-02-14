@@ -33,7 +33,7 @@ users = User.order(:created_at).take(99)
 end
 
 users = User.all
-user  = users.third
+user  = users.first
 following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
